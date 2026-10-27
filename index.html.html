@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP GAMES | Tienda Gamer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #172033;
+        }
+
+       header {
+    background: rgba(8, 18, 36, 0.65);
+    color: #ffffff;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    backdrop-filter: blur(6px);
+}
+        header h1 {
+            font-size: 40px;
+            margin: 5px;
+            color: #60a5fa;
+        }
+
+        nav {
+            background: #1e293b;
+            text-align: center;
+            padding: 14px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+        }
+
+        section {
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .productos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+    
+         
+.producto {
+    background: rgba(8, 18, 36, 0.72);
+    color: #ffffff;
+    width: 280px;
+    padding: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+}
+
+/* Letras blancas en las tarjetas */
+.producto h3 {
+    color: #ffffff;
+}
+
+.producto p {
+    color: #e2e8f0;
+}
+
+.producto strong {
+    color: #38a8ff;
+}
+
+
+
+        .producto img {
+            width: 100%;
+            height: 170px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .producto-icono {
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 76px;
+            border-radius: 8px;
+            background: rgba(148, 163, 184, 0.12);
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        
+         .registro {
+         background: rgba(8, 18, 36, 0.82);
+         color: #f8fafc;
+          max-width: 430px;
+          margin: 15px auto;
+         padding: 25px;
+         border: 1px solid rgba(148, 163, 184, 0.35);
+          border-radius: 12px;
+         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+          text-align: left;
+         }
+
+
+        .registro input[type="text"],
+        .registro input[type="email"] {
+            width: 100%;
+            padding: 11px;
+            margin: 8px 0 15px;
+        }
+
+        .registro label {
+            line-height: 1.8;
+        }
+
+        #resultado {
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+/* Fondo de pájaros volando */
+.pajaros {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pajaros span {
+    position: absolute;
+    left: -60px;
+    top: 15%;
+    font-size: 28px;
+    animation: volar 14s linear infinite;
+}
+
+.pajaros span:nth-child(2) {
+    top: 30%;
+    animation-duration: 19s;
+    animation-delay: 2s;
+}
+
+.pajaros span:nth-child(3) {
+    top: 45%;
+    animation-duration: 16s;
+    animation-delay: 5s;
+}
+
+.pajaros span:nth-child(4) {
+    top: 65%;
+    animation-duration: 21s;
+    animation-delay: 1s;
+}
+
+.pajaros span:nth-child(5) {
+    top: 80%;
+    animation-duration: 17s;
+    animation-delay: 7s;
+}
+
+@keyframes volar {
+    0% {
+        left: -60px;
+        transform: translateY(0) scaleX(1);
+    }
+
+    50% {
+        transform: translateY(-35px) scaleX(1);
+    }
+
+    100% {
+        left: 110%;
+        transform: translateY(20px) scaleX(1);
+    }
+}
+
+/* Mantener el contenido por encima del fondo */
+header, nav, section, footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+body {
+    background-image:
+        linear-gradient(
+            rgba(5, 15, 40, 0.25),
+            rgba(5, 15, 40, 0.45)
+        ),
+        url("imagenes/fondo.jpg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #081329;
+}
+
+
+/* Hacer que los textos se lean sobre el fondo */
+#inicio h2,
+#inicio p,
+#productos h2 {
+    color: white;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.producto {
+    color: #ffffff;
+}
+
+/* Pájaros negros que vuelan por el fondo */
+.aves-fondo {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ave {
+    position: absolute;
+    left: -100px;
+    width: 55px;
+    height: 30px;
+    fill: #05070c;
+    opacity: 0.95;
+    animation: vuelo 18s linear infinite;
+}
+
+.ave svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ave1 {
+    top: 12%;
+    animation-duration: 17s;
+}
+
+.ave2 {
+    top: 25%;
+    animation-duration: 23s;
+    animation-delay: -8s;
+    transform: scale(0.7);
+}
+
+.ave3 {
+    top: 38%;
+    animation-duration: 20s;
+    animation-delay: -13s;
+    transform: scale(1.2);
+}
+
+.ave4 {
+    top: 18%;
+    animation-duration: 26s;
+    animation-delay: -5s;
+    transform: scale(0.6);
+}
+
+.ave5 {
+    top: 32%;
+    animation-duration: 21s;
+    animation-delay: -16s;
+    transform: scale(0.85);
+}
+
+@keyframes vuelo {
+    0% {
+        left: -100px;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -25px;
+    }
+
+    100% {
+        left: calc(100% + 100px);
+        margin-top: 10px;
+    }
+}
+
+/* El contenido debe quedar por encima de las aves */
+header,
+nav,
+section,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+.registro input[type="text"],
+.registro input[type="email"] {
+    background: rgba(15, 23, 42, 0.9);
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 7px;
+    padding: 11px;
+    width: 100%;
+    margin: 8px 0 15px;
+}
+
+.registro input::placeholder {
+    color: #cbd5e1;
+}
+
+.registro p {
+    color: #f8fafc;
+}
+
+#productos h2 {
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+#registro h2,
+#registro > p {
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.registro label,
+.registro p {
+    color: #ffffff;
+}
+
+.registro input[type="text"],
+.registro input[type="email"] {
+    background: rgba(15, 23, 42, 0.9);
+    color: #ffffff;
+    border: 1px solid #647da5;
+    border-radius: 7px;
+}
+
+.registro input::placeholder {
+    color: #cbd5e1;
+}
+#productos 
+.contenedor-productos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 10px;
+    scroll-behavior: smooth;
+}
+
+.contenedor-productos .producto {
+    flex: 0 0 280px;
+    width: 280px;
+    box-sizing: border-box;
+}
+
+
+#productos .contenedor-productos::-webkit-scrollbar {
+    height: 8px;
+}
+
+#productos .contenedor-productos::-webkit-scrollbar-thumb {
+    background: #38a8ff;
+    border-radius: 10px;
+}
+.productos {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 10px;
+    scroll-behavior: smooth;
+}
+
+.productos .producto {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+}
+
+.productos::-webkit-scrollbar {
+    height: 8px;
+}
+
+.productos::-webkit-scrollbar-thumb {
+    background: #38a8ff;
+    border-radius: 10px;
+}
+
+.contenedor-productos {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 10px;
+    scroll-behavior: smooth;
+}
+
+.contenedor-productos .producto {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+}
+
+.contenedor-productos::-webkit-scrollbar {
+    height: 8px;
+}
+
+.contenedor-productos::-webkit-scrollbar-thumb {
+    background: #38a8ff;
+    border-radius: 10px;
+}
+.boton-carrito {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1000;
+    background: #2563eb;
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #38a8ff;
+    transition: transform 0.2s;
+}
+
+.boton-carrito:hover {
+    transform: scale(1.1);
+}
+    </style>
+</head>
+
+<body>
+
+
+<div class="aves-fondo" aria-hidden="true">
+    <span class="ave ave1">
+        <svg viewBox="0 0 60 30">
+            <path d="M2 25 Q10 2 27 17 Q30 20 30 24 Q33 20 36 17 Q53 2 58 25 Q43 15 32 28 L30 30 L28 28 Q17 15 2 25Z"/>
+        </svg>
+    </span>
+
+    <span class="ave ave2">
+        <svg viewBox="0 0 60 30">
+            <path d="M2 25 Q10 2 27 17 Q30 20 30 24 Q33 20 36 17 Q53 2 58 25 Q43 15 32 28 L30 30 L28 28 Q17 15 2 25Z"/>
+        </svg>
+    </span>
+
+    <span class="ave ave3">
+        <svg viewBox="0 0 60 30">
+            <path d="M2 25 Q10 2 27 17 Q30 20 30 24 Q33 20 36 17 Q53 2 58 25 Q43 15 32 28 L30 30 L28 28 Q17 15 2 25Z"/>
+        </svg>
+    </span>
+
+    <span class="ave ave4">
+        <svg viewBox="0 0 60 30">
+            <path d="M2 25 Q10 2 27 17 Q30 20 30 24 Q33 20 36 17 Q53 2 58 25 Q43 15 32 28 L30 30 L28 28 Q17 15 2 25Z"/>
+        </svg>
+    </span>
+
+    <span class="ave ave5">
+        <svg viewBox="0 0 60 30">
+            <path d="M2 25 Q10 2 27 17 Q30 20 30 24 Q33 20 36 17 Q53 2 58 25 Q43 15 32 28 L30 30 L28 28 Q17 15 2 25Z"/>
+        </svg>
+    </span>
+</div>
+
+        <header>
+    <a href="#registro" class="boton-carrito" aria-label="Ir al registro">🛒</a>
+
+    <h1>TOP GAMES</h1><h1>TOP GAMES</h1>
+        <p>¡Tu mundo gamer empieza aquí!</p>
+        <p>Videojuegos y accesorios para disfrutar al máximo.</p>
+        <button onclick="irAProductos()">Ver productos</button>
+       <button onclick="alert('Regístrate primero para poder solicitar un producto'); mostrarContacto();">
+       Contáctanos
+      </button>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#registro">Registro</a>
+    </nav>
+
+    <section id="inicio">
+        <h2>Bienvenido a TOP GAMES</h2>
+        <p>Descubre accesorios y productos para tus videojuegos favoritos.</p>
+    </section>
+
+    <section id="productos">
+        <h2>Nuestros productos</h2>
+
+        <div class="contenedor-productos">
+
+            <div class="producto">
+                <img
+                    src="imagenes/control.jpg.jfif" 
+                    alt="Control gamer">
+
+                <h3>Control gamer</h3>
+                <p>Disfruta tus videojuegos con comodidad.</p>
+                <p><strong>$80.000</strong></p>
+                <button onclick="verProducto('Control gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img
+                    src="imagenes/audifonos.jpg" 
+                    alt="Audífonos gamer">
+                
+
+                <h3>Audífonos gamer</h3>
+                <p>Escucha cada detalle de tus juegos.</p>
+                <p><strong>$60.000</strong></p>
+                <button onclick="verProducto('Audífonos gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img
+                    src="imagenes/videojuegos.jpg.jpg" 
+                    alt="Videojuegos">
+
+                <h3>Videojuegos</h3>
+                <p>Encuentra aventuras para divertirte.</p>
+                <p><strong>$100.000</strong></p>
+                <button onclick="verProducto('Videojuegos')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+              <img src="imagenes/mausegamer.jpg.avif" 
+              alt="Mouse gamer" class="producto-imagen">
+                <h3>Mouse gamer</h3>
+                <p>Precisión y velocidad para jugar.</p>
+                <p><strong>$45.000</strong></p>
+                <button onclick="verProducto('Mouse gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+              <img src="imagenes/teclado.pjg.avif" 
+              alt="teclado gamer" class="producto-imagen">
+                <h3>Teclado gamer</h3>
+                <p>Comodidad para cada partida.</p>
+                <p><strong>$95.000</strong></p>
+                <button onclick="verProducto('Teclado gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="imagenes/silla.jfif" 
+                alt="silla gamer" class="producto-imagen">
+                <h3>Silla gamer</h3>
+                <p>Más comodidad durante tus juegos.</p>
+                <p><strong>$450.000</strong></p>
+                <button onclick="verProducto('Silla gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="imagenes/monitor.jpg.webp" 
+                alt="Monitor gamer" class="producto-imagen">
+                <h3>Monitor gamer</h3>
+                <p>Disfruta tus juegos en una gran pantalla.</p>
+                <p><strong>$650.000</strong></p>
+                <button onclick="verProducto('Monitor gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+               <img src="imagenes/portatil.jfif" 
+               alt="Portátil gamer" class="producto-imagen">
+                <h3>Portátil gamer</h3>
+                <p>Lleva tus juegos a donde quieras.</p>
+                <p><strong>$2.500.000</strong></p>
+                <button onclick="verProducto('Portátil gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="imagenes/microfono.jpg.jfif" 
+                alt="Micrófono gamer" class="producto-imagen">
+                <h3>Micrófono gamer</h3>
+                <p>Comunícate con tu equipo con claridad.</p>
+                <p><strong>$75.000</strong></p>
+                <button onclick="verProducto('Micrófono gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="imagenes/mausetap.jfif" 
+                alt="Mousepad gamer" class="producto-imagen">
+                <h3>Mousepad gamer</h3>
+                <p>Una superficie cómoda para tu mouse.</p>
+                <p><strong>$25.000</strong></p>
+                <button onclick="verProducto('Mousepad gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="imagenes/camaraweb.jfif" 
+                alt="Cámara gamer" class="producto-imagen">
+                <h3>Cámara web</h3>
+                <p>Ideal para videollamadas y transmisiones.</p>
+                <p><strong>$90.000</strong></p>
+                <button onclick="verProducto('Cámara web')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                 <img src="imagenes/images.jfif" 
+                alt="Parlantes gamer" class="producto-imagen">
+                <h3>Parlantes gamer</h3>
+                <p>Disfruta el sonido de tus juegos.</p>
+                <p><strong>$85.000</strong></p>
+                <button onclick="verProducto('Parlantes gamer')">
+                    Más información
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="imagenes/soporte.jfif" 
+                alt="soporte para audifonos gamer" class="producto-imagen">
+                <h3>Soporte para audífonos</h3>
+                <p>Mantén tus accesorios organizados.</p>
+                <p><strong>$35.000</strong></p>
+                <button onclick="verProducto('Soporte para audífonos')">
+                    Más información
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="registro">
+        <h2>Registro de visitantes</h2>
+        <p>Completa el formulario para continuar.</p>
+
+        <form class="registro" id="formulario">
+
+            <label for="nombre">Nombre:</label>
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Escribe tu nombre"
+                required>
+
+            <label for="correo">Correo electrónico:</label>
+            <input
+                type="email"
+                id="correo"
+                placeholder="ejemplo@correo.com"
+                required>
+
+            <p>¿Tienes 18 años o más?</p>
+
+            <label>
+                <input
+                    type="radio"
+                    name="edad"
+                    value="si"
+                    required>
+                Sí, tengo 18 años o más.
+            </label>
+
+            <br>
+
+            <label>
+                <input
+                    type="radio"
+                    name="edad"
+                    value="no">
+                No, tengo menos de 18 años.
+            </label>
+
+            <br><br>
+
+            <button type="submit">Registrarme</button>
+
+            <p id="resultado" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 TOP GAMES</p>
+        <p>Tu lugar para disfrutar del mundo gamer.</p>
+    </footer>
+
+    <script>
+        function irAProductos() {
+            document.getElementById("productos").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        function mostrarContacto() {
+            alert("¡Gracias por visitar TOP GAMES!");
+        }
+
+        function verProducto(producto) {
+            alert("Has seleccionado: " + producto);
+        }
+
+        document.getElementById("formulario").addEventListener(
+            "submit",
+            function(event) {
+                event.preventDefault();
+
+                const nombre = document.getElementById("nombre").value.trim();
+                const correo = document.getElementById("correo").value.trim();
+                const edad = document.querySelector(
+                    'input[name="edad"]:checked'
+                ).value;
+
+                const resultado = document.getElementById("resultado");
+
+                if (edad === "si") {
+                    resultado.textContent =
+                        "¡Bienvenido/a, " + nombre +
+                        "! Has indicado que eres mayor de edad.";
+                } else {
+                    resultado.textContent =
+                        "¡Hola, " + nombre +
+                        "! Puedes seguir explorando TOP GAMES.";
+                }
+            }
+        );
+    </script>
+
+</body>
+</html>
+
